@@ -1,0 +1,7 @@
+- hosts: all
+  become: true
+  tasks:
+  - name: Adding my user to visudo
+    lineinfile:
+      path: /etc/sudoers
+      line: "majid   ALL=(ALL)     NOPASSWD:ALL"
