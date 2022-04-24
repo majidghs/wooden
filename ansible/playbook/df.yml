@@ -1,0 +1,11 @@
+- become: true
+  hosts: production
+  gather_facts: false
+  tasks:
+    - name: Disk space checking
+      shell: df -h /dev/sda2
+      register: return_value
+
+    - name: debug output
+      debug:
+        msg: "{{ return_value.stdout }}"
